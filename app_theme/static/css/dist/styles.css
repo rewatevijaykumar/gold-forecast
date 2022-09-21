@@ -854,6 +854,14 @@ select {
   height: 1.5rem;
 }
 
+.h-1\/2 {
+  height: 50%;
+}
+
+.h-full {
+  height: 100%;
+}
+
 .w-5 {
   width: 1.25rem;
 }
@@ -868,6 +876,14 @@ select {
 
 .w-1\/2 {
   width: 50%;
+}
+
+.max-w-lg {
+  max-width: 32rem;
+}
+
+.max-w-xl {
+  max-width: 36rem;
 }
 
 .shrink-0 {
