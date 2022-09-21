@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="flex justify-center items-center m-5 bg-yellow-300 py-10 w-full">
+    <h1 class="text-5xl font-semibold uppercase text-center">Forecasting Deployment Using Django</h1>
+    </div>
+    <div class="flex justify-center items-center p-5 w-full">
+        <h1 class="text-4xl font-bold text-yellow-800 underline underline-offset-4">
+            Gold Price Prediction
+        </h1>
+    </div>
+    <div class="flex flex-col justify-center items-center mx-auto"> 
+        <form class="flex flex-col w-1/2 justify-center p-2 items-center rounded-lg shadow-lg bg-yellow-300 m-5" action="/predict" method='POST'>
+            {% csrf_token %}
+            <div class="relative flex justify-center items-center pt-1">
+                <label for="customRange2" class="form-label text-lg mr-4">Enter Forecast Period: </label>
+                <input type="text" name="days" class="form-control bg-white rounded-lg p-2" placeholder="1 to 365 days">
+                
+                <button type="submit" class="bg-yellow-700 hover:bg-yellow-600 text-white font-bold text-lg px-3 py-2 ml-4 rounded-lg">Forecast</button>
+            </div>
+        </form>
+        {% if error %}
+            <div class="flex mx-auto bg-red-100 rounded-lg p-4 w-1/2 mb-4 text-sm text-red-700" role="alert">
+                <svg class="w-5 h-5 inline mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                <div class="text-lg">
+                    <span class="font-medium">Alert!</span> {{error}}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% if data %}
+    <div class="flex flex-col justify-center items-center">
+        <canvas id="myChart" width="600" height="600"></canvas>
+        <div class="overflow-x-auto  w-1/2 my-5">
+            <table class="table-auto w-full border border-yellow-400">
+            <thead class="border-b">
+                <tr class="bg-yellow-100">
+                    {% for col in column_names %}
+                    <th class="text-left p-4 font-medium">
+                        {{col}}
+                    </th>
+                {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for info in data %}
+                <tr class="border-b hover:bg-yellow-50">
+               
+                <td class="p-4">
+                    {{info.index}} 
+                </td>                     
+                <td class="p-4">
+                    {{info.Date}} 
+                </td>                     
+                
+                <td class="p-4">
+                    {{info.Prediction}} 
+                </td>                     
+
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+{% endblock content %}
