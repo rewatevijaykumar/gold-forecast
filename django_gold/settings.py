@@ -145,4 +145,4 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://gold-pred.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://gold-pred.herokuapp.com','https://web-production-9c27.up.railway.app']
