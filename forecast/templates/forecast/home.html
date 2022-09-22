@@ -2,9 +2,7 @@
 
 {% block content %}
 
-    <div class="flex justify-center items-center m-1 md:m-5 bg-yellow-300 py-4 md:py-10 w-full">
-        <h1 class="text-2xl md:text-5xl font-bold text-black uppercase text-center">Forecasting Deployment Using Django</h1>
-    </div>
+    
     <div class="flex justify-center items-center p-4 md:p-5 w-full">
         <h1 class="text-xl md:text-4xl font-bold text-yellow-800 underline underline-offset-4">
             Gold Price Prediction
@@ -15,7 +13,7 @@
             {% csrf_token %}
             <div class="relative flex flex-col space-y-2 md:flex-row justify-center items-center pt-1">
                 <label for="customRange2" class="form-label text-center text-lg md:mr-4">Enter Forecast Period: </label>
-                <input type="text" name="days" class="form-control placeholder:text-center md:placeholder:text-left bg-white rounded-lg md:p-2" placeholder="1 to 365 days">
+                <input type="text" name="days" class="form-control placeholder:text-center md:placeholder:text-left bg-white rounded-lg p-2" placeholder="1 to 365 days">
                 
                 <button type="submit" class="bg-yellow-700 hover:bg-yellow-600 text-white font-bold text-lg px-3 py-2 md:ml-4 rounded-lg">Forecast</button>
             </div>

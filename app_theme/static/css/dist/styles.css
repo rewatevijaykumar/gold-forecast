@@ -1162,6 +1162,10 @@ select {
     margin: 1.75rem;
   }
 
+  .md\:m-0 {
+    margin: 0px;
+  }
+
   .md\:mr-4 {
     margin-right: 1rem;
   }
