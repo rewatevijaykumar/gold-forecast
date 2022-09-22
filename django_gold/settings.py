@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'gold-pred.herokuapp.com',
-    'web-production-9c27.up.railway.app'
+    'web-production-9c27.up.railway.app',
     'localhost',
     '127.0.0.1'
 ]
